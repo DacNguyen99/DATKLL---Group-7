@@ -1,8 +1,9 @@
-# DATKLL---Group-7
-* 27/10/2023 - Upload the first source, the program can detect and recognize faces through traning and datas in database
-Things to improve: Accuracy, Interacting Speed
-Things have been used: OpenCV and Python
-Tutorial: 
-  + The first python file Detector.py is used first to detect the faces appeared on the camera. The program will detect faces and takes 20 photos, then put them in the folder dataset.
-  + The second python file Training.py is used next to "train" the program through the images taken in the first step, then output a file called trainingdata.yml, which contains the training datas.
-  + The last python file Recognize.py is used to detect faces appeared on  the camera and recognize them through the trainingdata.yml and the datas in the database.
+# Face_Recognition Tutorial
+Nhận diện khuôn mặt khá chuẩn xác bằng MTCNN và Facenet!
+Chạy trên Tensorflow 2.x
+
+Tiền xử lý dữ liệu: python src/align_dataset_mtcnn.py  Dataset/FaceData/raw Dataset/FaceData/processed --image_size 160 --margin 32  --random_order --gpu_memory_fraction 0.25
+
+Train model: python src/classifier.py TRAIN Dataset/FaceData/processed Models/20180402-114759.pb Models/facemodel.pkl --batch_size 1000
+
+Real-time face  recognition: python src/face_rec_cam.py
